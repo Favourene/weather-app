@@ -1,38 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
 .App {
+  background: radial-gradient(
+    93.89% 185.67% at 3.33% 100%,
+    #1f334f 1.67%,
+    #4547c7 99.27%
+  );
+  display: flex;
+  align-items: center;
+  overflow-y: auto;
+  min-height: 100vh;
+}
+.App .wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  padding: 50px;
+}
+.App .wrapper .wrapper_left {
+  width: 45%;
+  margin-right: 50px;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App .wrapper .wrapper_left h1 {
+  font-weight: 700;
+  font-size: 45px;
+  line-height: 68px;
+  color: #fff;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.App .wrapper .wrapper_left p {
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 47px;
+  color: #fff;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App .wrapper .wrapper_left form select {
+  width: 100%;
+  max-width: 250px;
+  padding: 10px 20px;
+  background: none;
+  color: #fff;
+  outline: none;
+  border: 1px solid #ffffff;
+  font-weight: 500;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.App .wrapper .wrapper_left form button {
+  width: 100%;
+  max-width: 150px;
+  padding: 10px 20px;
+  background: none;
+  color: #fff;
+  border: 1px solid #ffffff;
+  font-weight: 500;
+  font-size: 20px;
+  outline: none;
+}
+.App .wrapper .wrapper_left form select option {
+  color: #1f334f;
+}
+.App .wrapper .wrapper_right {
+  width: 50%;
+}
+.App .wrapper .wrapper_right .weather-card {
+  width: 100%;
+  max-width: 500px;
+  background: url('./image/clear.jpg'),
+    linear-gradient(168.25deg, #767cab 2.84%, #1c1b33 98.98%);
+  /* background: linear-gradient(168.25deg, #767cab 2.84%, #1c1b33 98.98%),
+    url('./image/cloud.jpg'); */
+  box-shadow: -40px 60px 150px #1f334f;
+  background-size: cover;
+  background-position: center;
+  border-radius: 40px;
+  /* height: 110vh; */
+  padding: 40px 0;
+}
+.App .wrapper .wrapper_right .weather-card.Clear {
+  background: url('./image/clear.jpg');
+}
+.App .wrapper .wrapper_right .weather-card.Clouds {
+  background: url('./image/cloud.jpg');
+}
+.App .wrapper .wrapper_right .weather-card.Thunderstorm {
+  background: url('./image/storm.jpg');
+}
+.App .wrapper .wrapper_right .weather-card.Drizzle {
+  background: url('./image/drizzle.png');
+}
+.App .wrapper .wrapper_right .weather-card.Rain {
+  background: url('./image/rain.jpg');
+}
+.App .wrapper .wrapper_right .weather-card.Snow {
+  background: url('./image/snow.jpg');
+}
+.App .wrapper .wrapper_right .weather-card.Atmosphere {
+  background: url('./image/atmosphere.jpg');
+}
+.App .wrapper .wrapper_right .weather-card .top {
+  text-align: center;
+  padding: 30px 10px;
+  color: #fff;
+}
+.App .wrapper .wrapper_right .weather-card .top .city {
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 48px;
+  padding-bottom: 10px;
+}
+.App .wrapper .wrapper_right .weather-card .top .degree {
+  font-weight: 700;
+  font-size: 64px;
+  text-align: center;
+  position: relative;
+}
+.App .wrapper .wrapper_right .weather-card .top .degree > span {
+  font-weight: 400;
+  font-size: 30px;
+  position: absolute;
+}
+.App .wrapper .wrapper_right .weather-card .top .weather {
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 39px;
+  padding-bottom: 15px;
+}
+.App .wrapper .wrapper_right .weather-card .top .celcius {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+}
+.App .wrapper .wrapper_right .weather-card .middle {
+  padding-top: 50px;
+}
+.App .wrapper .wrapper_right .weather-card .middle h2 {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 19px;
+  color: #ffffff;
+  padding: 10px 30px;
+}
+.App .wrapper .wrapper_right .weather-card .middle .midle_wrap {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  background: linear-gradient(180deg, #1f334f 0%, rgba(69, 71, 199, 0) 100%);
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+  padding: 10px 30px;
+  overflow-x: auto;
+  box-shadow: 0px 1px 0px 0px #00000033;
 }
-
-.App-link {
-  color: #61dafb;
+.App .wrapper .wrapper_right .weather-card .middle .midle_wrap .middle_card {
+  text-align: center;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.App .wrapper .wrapper_right .weather-card .middle .middle_card p {
+  font-weight: 500;
+  font-size: 16px;
+  color: #ffffff;
+}
+.App .wrapper .wrapper_right .weather-card .middle .middle_card img {
+  width: 50px;
+}
+.App .wrapper .wrapper_right .weather-card .bottom {
+  padding-top: 20px;
+  box-shadow: inset 0px 1px 0px #ffffff;
+}
+.App .wrapper .wrapper_right .weather-card .bottom h2 {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 19px;
+  color: #ffffff;
+  padding: 10px 30px;
+}
+.App .wrapper .wrapper_right .weather-card .bottom .bottom_wrap {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 30px;
+  overflow-x: auto;
+}
+.App .wrapper .wrapper_right .weather-card .bottom .bottom_wrap .bottom_card {
+  color: #fff;
+  text-align: center;
+  width: 18%;
+  background: rgba(31, 51, 79, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25),
+    inset 1px 1px 0px rgba(255, 255, 255, 0.25);
+  border-radius: 32px;
+  padding: 20px 10px;
+}
+.App .wrapper .wrapper_right .weather-card .bottom .bottom_card h3 {
+  font-weight: 500;
+  font-size: 14px;
+  color: #ffffff;
+  padding-bottom: 10px;
+}
+.App .wrapper .wrapper_right .weather-card .bottom .bottom_card img {
+  width: 50px;
+}
+.App .wrapper .wrapper_right .weather-card .bottom .bottom_card p {
+  font-size: 12px;
+}
+@media (max-width: 1024px) {
+  .App .wrapper {
+    flex-wrap: wrap;
+    padding: 50px 20px;
   }
-  to {
-    transform: rotate(360deg);
+  .App .wrapper .wrapper_left {
+    width: 100%;
+    margin-bottom: 50px;
+    margin-right: 0px;
+  }
+  .App .wrapper .wrapper_right {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
+@media (max-width: 500px) {
+  .App .wrapper .wrapper_left h1 {
+    font-size: 30px;
+    line-height: initial;
+  }
+  .App .wrapper .wrapper_right .weather-card .middle .midle_wrap {
+    padding: 10px;
+  }
+  .App .wrapper .wrapper_right .weather-card .middle .midle_wrap .middle_card {
+    min-width: 70px;
+  }
+  .App .wrapper .wrapper_right .weather-card .bottom .bottom_wrap .bottom_card {
+    min-width: 90px;
+    margin-right: 10px;
   }
 }
