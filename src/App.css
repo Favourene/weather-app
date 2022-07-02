@@ -73,14 +73,12 @@
   max-width: 500px;
   background: url('./image/clear.jpg'),
     linear-gradient(168.25deg, #767cab 2.84%, #1c1b33 98.98%);
-  /* background: linear-gradient(168.25deg, #767cab 2.84%, #1c1b33 98.98%),
-    url('./image/cloud.jpg'); */
   box-shadow: -40px 60px 150px #1f334f;
   background-size: cover;
   background-position: center;
   border-radius: 40px;
-  /* height: 110vh; */
-  padding: 40px 0;
+  overflow: hidden;
+  padding-top: 40px;
 }
 .App .wrapper .wrapper_right .weather-card.Clear {
   background: url('./image/clear.jpg');
@@ -168,15 +166,25 @@
   width: 50px;
 }
 .App .wrapper .wrapper_right .weather-card .bottom {
-  padding-top: 20px;
   box-shadow: inset 0px 1px 0px #ffffff;
+  background: linear-gradient(
+    128.21deg,
+    rgba(118, 124, 171, 0.2) 3.59%,
+    rgba(28, 27, 51, 0.2) 92.1%
+  );
+  box-shadow: inset 0px 1px 0px #ffffff;
+  backdrop-filter: blur(48px);
+  padding-bottom: 40px;
 }
 .App .wrapper .wrapper_right .weather-card .bottom h2 {
   font-weight: 500;
   font-size: 20px;
   line-height: 19px;
   color: #ffffff;
-  padding: 10px 30px;
+  padding: 20px 30px;
+  padding-top: 40px;
+  border-bottom: 1px solid #fff;
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
 }
 .App .wrapper .wrapper_right .weather-card .bottom .bottom_wrap {
   display: flex;

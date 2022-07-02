@@ -69,8 +69,10 @@ function App() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
+    //Gets permission from user to get their location (longitude & latide) from thier gps
     function getLocation() {
       if (navigator.geolocation) {
+        //The if statements checks if the user is on a device that has gps, and if the permission is granted, it runs the weather api using thier location.
         navigator.geolocation.getCurrentPosition((data) => {
           fetch(
             `https://api.openweathermap.org/data/2.5/forecast?lat=${data.coords.latitude}&lon=${data.coords.longitude}&cnt=40&appid=32ba0bfed592484379e51106cef3f204&units=metric`
@@ -90,6 +92,7 @@ function App() {
             })
         }, console.log)
       } else {
+        //if the user is on a device that is not gps enabeled it returns this
         console.log('Geolocation is not supported by this browser.')
       }
     }
@@ -97,6 +100,7 @@ function App() {
   }, [])
 
   const handleSubmit = (event) => {
+    //this collects the city selected by the user and fetches the data
     event.preventDefault()
     fetch(
       `https://api.openweathermap.org/data/2.5/forecast?q=${city}&cnt=40&appid=32ba0bfed592484379e51106cef3f204&units=imperial`
@@ -105,6 +109,7 @@ function App() {
       .then((data) => {
         setWeatherData(data)
         const groupedData = data.list.reduce((days, row) => {
+          //since the api is returning multiple list data, this groups all the data that has similar dates.
           const date = row.dt_txt.split(' ')[0]
           days[date] = [...(days[date] ? days[date] : []), row]
           setLoading(false)
@@ -165,6 +170,7 @@ function App() {
                     <p className='time'>
                       {item.dt_txt.split(' ')[1].slice(0, 5)}
                     </p>
+                    {/* {A check is done here to return the images, since each weather type possesses a unique code, a check is done to find which code is being passed and the image relating to that code is returned} */}
                     {item.weather[0].id === 0 && <img src={Clear} alt='' />}
                     {item.weather[0].id >= 200 && item.weather[0].id <= 299 && (
                       <img src={Thunderstorm} alt='' />
